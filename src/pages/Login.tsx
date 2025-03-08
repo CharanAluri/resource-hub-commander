@@ -7,6 +7,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
+import { Separator } from "@/components/ui/separator";
+import { Github, Twitter, Linkedin } from 'lucide-react';
 
 const Login = () => {
   const { login } = useApp();
@@ -43,10 +45,24 @@ const Login = () => {
     setLoading(false);
   };
 
+  const handleSocialLogin = (provider: string) => {
+    toast({
+      title: "Social Login",
+      description: `${provider} login not implemented in this demo. Please use email login.`,
+    });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
+          <div className="flex justify-center mb-4">
+            <img 
+              src="https://www.ltimindtree.com/wp-content/uploads/2023/05/LTIMindtree_Logo.svg" 
+              alt="LTIMindtree Logo" 
+              className="h-12"
+            />
+          </div>
           <CardTitle className="text-2xl font-bold text-center">
             Resource Management System
           </CardTitle>
@@ -76,10 +92,40 @@ const Login = () => {
               </p>
             </div>
           </CardContent>
-          <CardFooter>
+          <CardFooter className="flex flex-col space-y-4">
             <Button type="submit" className="w-full bg-resource hover:bg-resource-dark" disabled={loading}>
-              {loading ? "Logging in..." : "Login"}
+              {loading ? "Logging in..." : "Login with Email"}
             </Button>
+            
+            <div className="flex items-center w-full my-2">
+              <Separator className="flex-grow" />
+              <span className="px-4 text-sm text-gray-500">OR</span>
+              <Separator className="flex-grow" />
+            </div>
+            
+            <div className="flex justify-center gap-4 w-full">
+              <Button 
+                variant="outline" 
+                className="flex-1"
+                onClick={() => handleSocialLogin('GitHub')}
+              >
+                <Github className="mr-2 h-4 w-4" /> GitHub
+              </Button>
+              <Button 
+                variant="outline" 
+                className="flex-1"
+                onClick={() => handleSocialLogin('LinkedIn')}
+              >
+                <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
+              </Button>
+              <Button 
+                variant="outline" 
+                className="flex-1"
+                onClick={() => handleSocialLogin('Twitter')}
+              >
+                <Twitter className="mr-2 h-4 w-4" /> Twitter
+              </Button>
+            </div>
           </CardFooter>
         </form>
       </Card>
