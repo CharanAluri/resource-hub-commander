@@ -53,17 +53,19 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-[#0a0f29] to-[#1a1f3c] bg-no-repeat bg-cover">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f29] to-[#1a1f3c] opacity-95 z-0"></div>
+      
+      <Card className="w-full max-w-md relative z-10 border-0 shadow-xl bg-white/95 backdrop-blur-sm">
         <CardHeader className="space-y-1">
           <div className="flex justify-center mb-4">
             <img 
               src="https://www.ltimindtree.com/wp-content/uploads/2023/05/LTIMindtree_Logo.svg" 
               alt="LTIMindtree Logo" 
-              className="h-12"
+              className="h-12 sm:h-14 md:h-16"
             />
           </div>
-          <CardTitle className="text-2xl font-bold text-center">
+          <CardTitle className="text-xl sm:text-2xl font-bold text-center">
             Resource Management System
           </CardTitle>
           <CardDescription className="text-center">
@@ -80,6 +82,7 @@ const Login = () => {
                 placeholder="admin@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="bg-white/80"
               />
             </div>
             <div className="space-y-2">
@@ -93,7 +96,11 @@ const Login = () => {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
-            <Button type="submit" className="w-full bg-resource hover:bg-resource-dark" disabled={loading}>
+            <Button 
+              type="submit" 
+              className="w-full bg-resource hover:bg-resource-dark transition-colors" 
+              disabled={loading}
+            >
               {loading ? "Logging in..." : "Login with Email"}
             </Button>
             
@@ -103,27 +110,30 @@ const Login = () => {
               <Separator className="flex-grow" />
             </div>
             
-            <div className="flex justify-center gap-4 w-full">
+            <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 w-full">
               <Button 
                 variant="outline" 
-                className="flex-1"
+                className="w-full sm:flex-1"
                 onClick={() => handleSocialLogin('GitHub')}
               >
-                <Github className="mr-2 h-4 w-4" /> GitHub
+                <Github className="mr-2 h-4 w-4" /> 
+                <span className="sm:inline">GitHub</span>
               </Button>
               <Button 
                 variant="outline" 
-                className="flex-1"
+                className="w-full sm:flex-1"
                 onClick={() => handleSocialLogin('LinkedIn')}
               >
-                <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
+                <Linkedin className="mr-2 h-4 w-4" /> 
+                <span className="sm:inline">LinkedIn</span>
               </Button>
               <Button 
                 variant="outline" 
-                className="flex-1"
+                className="w-full sm:flex-1"
                 onClick={() => handleSocialLogin('Twitter')}
               >
-                <Twitter className="mr-2 h-4 w-4" /> Twitter
+                <Twitter className="mr-2 h-4 w-4" /> 
+                <span className="sm:inline">Twitter</span>
               </Button>
             </div>
           </CardFooter>
