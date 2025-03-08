@@ -69,10 +69,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-[#0a0f29] to-[#1a1f3c] bg-no-repeat bg-cover">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f29] to-[#1a1f3c] opacity-95 z-0"></div>
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-[#0a0a29] via-[#101045] to-[#1a1a5c] bg-no-repeat bg-cover">
+      <div className="absolute inset-0 bg-[url('/lovable-uploads/94eb6bee-3ab6-475b-8c46-112efba66ff6.png')] bg-cover bg-center opacity-20 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a29] via-[#101045] to-[#1a1a5c] opacity-90 z-0"></div>
       
-      <Card className="w-full max-w-md relative z-10 border-0 shadow-xl bg-white/95 backdrop-blur-sm">
+      <Card className="w-full max-w-md relative z-10 border-0 shadow-2xl bg-white/95 backdrop-blur-sm">
         <CardHeader className="space-y-1">
           <div className="flex justify-center mb-4">
             <img 
@@ -140,7 +141,7 @@ const Login = () => {
           <CardFooter className="flex flex-col space-y-4">
             <Button 
               type="submit" 
-              className="w-full bg-resource hover:bg-resource-dark transition-colors" 
+              className="w-full bg-[#0a0a29] hover:bg-[#1a1a5c] transition-colors" 
               disabled={loading}
             >
               {loading ? "Logging in..." : "Login with Email"}
